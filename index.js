@@ -1,4 +1,4 @@
-const API_KEY = '2195b61d34a64246ab755119250402';
+const API_KEY = 'your-weather-api-key';
 const BASE_URL = 'https://api.weatherapi.com/v1';
 
 // Predefined list of cities for suggestions
