@@ -1,0 +1,95 @@
+:root {
+  /* Color palette */
+  --color-primary: #3b82f6;
+  --color-text: #1f2937;
+  --color-border: #e5e7eb;
+  --color-background: #fff;
+  
+  /* Spacing scale */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  
+  /* Transition timing */
+  --transition-fast: 0.2s;
+  --transition-medium: 0.3s;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+/* Base styles */
+body {
+  font-family: 'Inter', sans-serif;
+  color: var(--color-text);
+}
+
+/* Animation definitions */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.5s ease-out forwards;
+}
+
+/* Interactive elements */
+.search-button {
+  transition: transform var(--transition-fast) ease-out;
+}
+
+.search-button:hover {
+  transform: translateY(-2px);
+}
+
+.city-input {
+  transition: border-color var(--transition-fast) ease;
+}
+
+.city-input::placeholder {
+  transition: opacity var(--transition-fast) ease;
+  color: oklch(0.7 0 0);
+}
+
+.city-input:focus::placeholder {
+  opacity: 0.5;
+}
+
+/* Suggestions component */
+.suggestions-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-radius: 0.375rem;
+  overflow: hidden;
+}
+
+.suggestion-item {
+  cursor: pointer;
+  padding: var(--space-xs) var(--space-sm);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-background);
+  transition:
+    background-color var(--transition-fast),
+    color var(--transition-fast);
+}
+
+.suggestion-item:hover,
+.suggestion-item.active {
+  background-color: var(--color-primary);
+  color: var(--color-background);
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .suggestion-item {
+    padding: var(--space-xs);
+    font-size: 0.875rem;
+  }
+}
